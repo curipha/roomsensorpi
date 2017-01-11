@@ -1,0 +1,7 @@
+# /boot/config.txt
+gpu_mem=128
+start_file=start_x.elf
+fixup_file=fixup_x.dat
+dtparam=i2c=on
+disable_overscan=1
+disable_splash=1
