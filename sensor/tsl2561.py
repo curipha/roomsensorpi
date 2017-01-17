@@ -108,7 +108,7 @@ class TSL2561:
       return 0.0
 
   def show(self):
-    print('lux: %-7.2f' % (self.get_lux()))
+    print('{ "lux": %-7.2f }' % (self.get_lux()))
 
 if __name__ == '__main__':
   TSL2561(0x01).show()

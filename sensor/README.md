@@ -30,9 +30,9 @@ $ sudo i2cdetect -y 1
 
 ```bash
 $ sudo python3 bme280.py
-temperature: 25.32
-pressure: 1013.45
-humidity: 24.66
+{ "temperature": 27.66   }
+{ "pressure": 1007.92 }
+{ "humidity": 27.06   }
 ```
 
 Unit is "Celsius" for temperature, "hPa" for pressure and "%" for humidity.
@@ -98,7 +98,7 @@ $ sudo i2cdetect -y 1
 
 ```bash
 $ sudo python3 tsl2561.py
-lux: 464.34
+{ "lux": 464.34  }
 ```
 
 
