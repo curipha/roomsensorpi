@@ -1,0 +1,16 @@
+{
+  "_source": [ "temperature" ],
+  "query": {
+    "bool": {
+      "must": [
+        { "match":  { "hostname": "alarmpi" } },
+        { "exists": { "field":    "temperature" } },
+        { "range":  { "@timestamp": { "gte": "now-5m" } } }
+      ]
+    }
+  },
+  "aggregations": {
+    "temperature_average": { "avg": { "field": "temperature" } }
+  }
+}
+

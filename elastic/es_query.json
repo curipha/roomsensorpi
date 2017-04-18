@@ -1,0 +1,15 @@
+{
+  "size": 2,
+  "query": {
+    "bool": {
+      "must": [
+        { "match": { "hostname": "alarmpi" } },
+        { "range": { "@timestamp": { "gte": "now-10m" } } }
+      ]
+    }
+  },
+  "sort": [
+    { "@timestamp": "desc" }
+  ]
+}
+
