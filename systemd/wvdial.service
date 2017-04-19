@@ -1,0 +1,23 @@
+# /etc/systemd/system/wvdial.service
+
+[Unit]
+Description=wvdial
+After=network.target dev-ttyUSB0.device
+Before=shutdown.target
+BindsTo=dev-ttyUSB0.device
+Requires=network.target
+Conflicts=shutdown.target
+StartLimitInterval=30min
+StartLimitBurst=4
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/wvdial
+ExecStop=/usr/bin/kill -HUP ${MAINPID}
+Restart=always
+RestartSec=4s
+SuccessExitStatus=1
+
+[Install]
+WantedBy=multi-user.target
+

@@ -1,0 +1,19 @@
+# /etc/systemd/system/fluentd.service
+
+[Unit]
+Description=Fluentd data collector for Elasticsearch service
+After=network.target network-online.target
+Before=shutdown.target
+Wants=network-online.target
+Conflicts=shutdown.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/fluentd -c /absolute/path/to/fluent.conf
+ExecStop=/usr/bin/kill -INT ${MAINPID}
+ExecReload=/usr/bin/kill -HUP ${MAINPID}
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
